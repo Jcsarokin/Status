@@ -1,0 +1,20 @@
+$body-bg:              #ecf0f1;
+$navbar-bg:            #FFFFFF;
+$navbar-link-color:    #f1c615;
+$jumbotron-bg:         #FFFFFF;
+$btn-primary-bg:       #f1c40f;
+$btn-success-bg:       #34495e;
+$text-color:            #2c3e50;
+$link-color:           #1abc9c;
+$hover:                 #18b194;
+
+	.center {
+	text-align: center;
+	}
+
+	.navbar-brand {
+		font-weight: bold;
+	}
+
+
+@import 'bootstrap';
