@@ -1,5 +1,5 @@
 Status::Application.routes.draw do
-  get "pages/home"
+  devise_for :users
   root "pages#home"
   get "invite" => "pages#invite"
 
