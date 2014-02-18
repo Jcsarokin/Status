@@ -12,7 +12,11 @@
         <li><%= link_to "Invite", invite_path %></li>
         <% if user_signed_in? %>
           <li><%= link_to "Account Settings", edit_user_registration_path %></li>
-          <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+          <li><span class="btn btn-default navbar-btn">
+            <%= link_to new_stati_path do %>
+              <span class="glyphicon glyphicon-plus"></span> Update Status
+            <% end %></span></button>
+          <li> <%= link_to "Log out", destroy_user_session_path, method: :delete %> </li>
         <% else %>
           <li><%= link_to "Sign in", new_user_session_path %></li>
         <% end %>
