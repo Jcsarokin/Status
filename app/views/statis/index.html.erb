@@ -15,8 +15,8 @@
   <tbody>
     <% @statis.each do |stati| %>
       <tr>
-        <td><%= stati.description %></td>
         <td> </td>
+        <td><%= stati.description %></td>
         <td> </td>
         <td><%= link_to 'Show', stati %> <%= link_to 'Edit', edit_stati_path(stati) %> <%= link_to 'Destroy', stati, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 
