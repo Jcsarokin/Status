@@ -12,7 +12,7 @@
         <li><%= link_to "Invite", invite_path %></li>
         <% if user_signed_in? %>
           <li><%= link_to "Account Settings", edit_user_registration_path %></li>
-          <li><span class="btn btn-default navbar-btn">
+          <li>
             <%= link_to new_stati_path do %>
               <span class="glyphicon glyphicon-plus"></span> Update Status
             <% end %></span></button>

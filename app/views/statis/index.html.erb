@@ -4,8 +4,8 @@
 <table class="table table-hover table-boardered">
       <thead>
         <tr>
-          <th>Name</th>
           <th>Status</th>
+          <th>Name</th>
           <th>Distance</th>
           <th>Actions</th>
         </tr>
@@ -14,9 +14,9 @@
 
   <tbody>
     <% @statis.each do |stati| %>
-      <tr>
-        <td><%= stati.user.email if stati.user %></td>
+      <tr class="success">
         <td><%= stati.description %></td>
+        <td><%= stati.user.email if stati.user %></td>
         <td> </td>
         <td><%= link_to 'Show', stati %> 
           <% if stati.user == current_user %>

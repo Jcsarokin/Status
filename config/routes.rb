@@ -2,7 +2,7 @@ Status::Application.routes.draw do
   resources :statis
 
   devise_for :users
-  root "pages#home"
+  root "statis#index"
   get "invite" => "pages#invite"
 
   # The priority is based upon order of creation: first created -> highest priority.
