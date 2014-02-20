@@ -15,10 +15,12 @@
   <tbody>
     <% @statis.each do |stati| %>
       <tr>
-        <td> </td>
+        <td><%= stati.user.email if stati.user %></td>
         <td><%= stati.description %></td>
         <td> </td>
-        <td><%= link_to 'Show', stati %> <%= link_to 'Edit', edit_stati_path(stati) %> <%= link_to 'Destroy', stati, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', stati %> 
+          <% if stati.user == current_user %>
+          <%= link_to 'Edit', edit_stati_path(stati) %> <%= link_to 'Destroy', stati, method: :delete, data: { confirm: 'Are you sure?' } %><% end %></td>
 
       </tr>
     <% end %>
@@ -26,5 +28,6 @@
 </table>
 
 <br>
-
+<% if user_signed_in? %>
 <%= link_to 'Update Status', new_stati_path %>
+<% end %>

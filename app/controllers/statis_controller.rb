@@ -1,5 +1,7 @@
 class StatisController < ApplicationController
   before_action :set_stati, only: [:show, :edit, :update, :destroy]
+  before_action :correct_user, only: [:edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
     @statis = Stati.all
@@ -9,14 +11,14 @@ class StatisController < ApplicationController
   end
 
   def new
-    @stati = Stati.new
+    @stati = current_user.statis.build
   end
 
   def edit
   end
 
   def create
-    @stati = Stati.new(stati_params)
+    @stati = current_user.statis.build(stati_params)
 
     respond_to do |format|
       if @stati.save
@@ -54,7 +56,13 @@ class StatisController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_stati
-      @stati = Stati.find(params[:id])
+      @stati = Stati.find_by(id: params[:id])
+    end
+
+    def correct_user
+      @stati = current_user.statis.find_by(id: params[:id])
+      redirect_to statis_path, notice: "Not authorized to edit this" if @stati.nil?
+      
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

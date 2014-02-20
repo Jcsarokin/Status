@@ -5,5 +5,7 @@
   <%= @stati.description %>
 </p>
 
-<%= link_to 'Edit', edit_stati_path(@stati) %> |
+
+<% if @stati.user == current_user %>
+<%= link_to 'Edit', statis_path %> | <% end %>
 <%= link_to 'Back', statis_path %>
